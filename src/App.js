@@ -4,6 +4,7 @@ import "./App.css";
 import { Todo } from "./components/todo";
 import { useState } from "react";
 import { nanoid } from "nanoid";
+import { todoList } from "./utils/constants";
 
 class todo {
 	constructor(title) {
@@ -13,14 +14,9 @@ class todo {
 	}
 }
 function App() {
+	console.log(todoList);
 	const [input, setInput] = useState("");
-	const [todos, setTodos] = useState([
-		{ id: nanoid(), title: "Take pills", done: false },
-		{ id: nanoid(), title: "städa", done: false },
-		{ id: nanoid(), title: "tömma dobbys låda", done: false },
-		{ id: nanoid(), title: "ge dobby mat", done: false },
-		{ id: nanoid(), title: "byta dobbys vatten", done: false },
-	]);
+	const [todos, setTodos] = useState(todoList);
 	const completed = todos.filter((todo) => todo.done === true);
 
 	const removeTodo = (id) => {
